@@ -949,6 +949,19 @@ namespace Test {
           AreEqualExact(ftemp, ftemp2);
         }
       }
+        }
+
+    [Test]
+    public void TestAsStringAzureIoT()
+    {
+        byte[] data = new byte[] { 0xA1, 0x6C, 0x64, 0x65, 0x76, 0x69, 0x63, 0x65, 0x5F, 0x63, 0x6F, 0x75, 0x6E, 0x74, 0x00 };
+        MemoryStream stream = new MemoryStream(data);
+        CBORObject cObj = CBORObject.Read(stream);
+        //userData = cObj.ToObject<DataObject>(mapper);
+
+        string json = cObj.ToJSONString();
+
+        Assert.IsFalse(false);
     }
 
     [Test]
